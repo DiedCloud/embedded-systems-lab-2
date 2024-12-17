@@ -1,8 +1,8 @@
-#ifndef EMBEDDED_SYSTEMS_LAB_2_OLED_H
-#define EMBEDDED_SYSTEMS_LAB_2_OLED_H
-
 #include "stm32f4xx_hal.h"
 #include "fonts.h"
+
+#ifndef EMBEDDED_SYSTEMS_LAB_2_OLED_H
+#define EMBEDDED_SYSTEMS_LAB_2_OLED_H
 
 #define OLED_I2C_PORT		hi2c1
 #define OLED_I2C_ADDR        0x78

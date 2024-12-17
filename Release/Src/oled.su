@@ -1,0 +1,12 @@
+../Src/oled.c:11:13:oled_WriteCommand	32	static
+../Src/oled.c:60:6:oled_Fill	0	static
+../Src/oled.c:69:6:oled_UpdateScreen	24	static
+../Src/oled.c:16:9:oled_Init	8	static
+../Src/oled.c:81:6:oled_DrawPixel	4	static
+../Src/oled.c:97:6:oled_DrawHLine	24	static
+../Src/oled.c:102:6:oled_DrawVLine	24	static
+../Src/oled.c:107:6:oled_DrawSquare	24	static
+../Src/oled.c:113:6:oled_WriteChar	48	static
+../Src/oled.c:144:6:oled_WriteString	24	static
+../Src/oled.c:154:6:oled_SetCursor	4	static
+../Src/oled.c:137:6:oled_NextLine	16	static

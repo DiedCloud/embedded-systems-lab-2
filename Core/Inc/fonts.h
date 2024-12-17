@@ -1,7 +1,8 @@
+#include "stm32f4xx_hal.h"
+
 #ifndef EMBEDDED_SYSTEMS_LAB_2_FONTS_H
 #define EMBEDDED_SYSTEMS_LAB_2_FONTS_H
 
-#include "stm32f4xx_hal.h"
 
 typedef struct {
     const uint8_t FontWidth;
