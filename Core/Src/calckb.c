@@ -1,7 +1,7 @@
 #include "calckb.h"
 #include "kb.h"
 #include "stm32f4xx_hal.h"
-#include "emb2calc.h"
+#include "calc.h"
 
 char layoutNum[4][3] = {
         {'1', '2', '3'},
