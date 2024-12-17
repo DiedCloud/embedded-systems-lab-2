@@ -2,6 +2,7 @@
 #include "calc.h"
 #include "../Inc/oled.h"
 #include "stm32f4xx_hal.h"
+#include "math.h"
 
 #include <stdlib.h>
 
@@ -13,7 +14,6 @@ uint8_t isFirst (void) {
 }
 
 void calcReset(void) {
-    calc.num1 = 0;
     calc.num2 = 0;
     calc.operation = '+';
     calc.stage = 0;
@@ -83,11 +83,32 @@ void operation(char ch) {
             if (calc.num2) {
                 calc.num1 = calc.num1 / calc.num2;
             }
-            pErr("Dividing by zero is not allowed");
+            else {
+                pErr("Dividing by zero is not allowed");
+            }
             break;
     }
 }
 
+int16_t checkValidInt() {
+    if (calc.num1 > pow(10, 9) || calc.num2 > pow(10, 9)) {
+        pErr("You reached max char length!");
+        return 0;
+    }
+    return 1;
+}
+void setCalcNum(char ch, int16_t flag) {
+    char cut = ch - '0';
+    if (!(checkValidInt())) {
+        return;
+    }
+    if(flag) {
+        calc.num1 = calc.num1 * 10 + cut;
+    }
+    else {
+        calc.num2 = calc.num2 * 10 + cut;
+    }
+}
 void keyPressed(char ch) {
     switch (ch) {
         case '+':
@@ -124,9 +145,9 @@ void keyPressed(char ch) {
             break;
         default:
             if (!calc.stage) {
-                calc.num1 = calc.num1 * 10 + (ch - '0');
+                setCalcNum(ch, 1);
             } else {
-                calc.num2 = calc.num2 * 10 + (ch - '0');
+                setCalcNum(ch, 0);
             }
     }
 }
